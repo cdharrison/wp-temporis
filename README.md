@@ -1,4 +1,4 @@
 wp-temporis
 =================
 
-A responsive timeline slider for WordPress.
+There's nothing to see here, yet.
