@@ -1,0 +1,322 @@
+/*
+ * temporis.scss
+ * 
+ */
+
+
+// 	Default Variables
+	// Colors
+	$temporisAqua: rgb(34,182,203);
+	$temporisGray: #d3d3d3;
+	
+	// Fonts
+	$fontStack: 'Helvetica Neue',helvetica,sans-serif;
+	$fontStackHeadings: ;
+
+// Containers
+	.temporisContainer{
+		background: rgba(#333,.5);
+		margin: 0 auto;
+		overflow: hidden;
+		padding: 0;
+		width: 100%;
+		max-width: 1000px;
+		
+		*{
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		
+		@media screen and ( max-width: 600px ){
+			border-bottom: 1px solid $temporisGray;
+		}
+	}
+
+	#temporisWrapper{
+		overflow: hidden;
+	}
+	
+
+// Controls (Previous & Next)
+	.temporisControls{
+		position: relative;
+		top: 12em;
+		z-index: 999;
+		a{
+			background: darken($temporisAqua,10%);
+			background: rgba($temporisAqua,.7);
+			color: #fff;
+			cursor: pointer;
+			cursor: hand;
+			padding: 10px;
+			position: relative;
+			text-decoration: none;
+			&.btnPrevious{
+				float: left;
+				margin-right: -35px;
+			}
+			&.btnNext{
+				float: right;
+				margin-left: -35px;
+			}
+			&:hover{
+				background: #c00;
+				-webkit-transition: all 0.25s;
+				-moz-transition: all 0.25s;
+				-o-transition: all 0.25s;
+				transition: all 0.25s;
+			}
+		}
+	}
+
+// Slider
+	ol#temporisSlider{
+		background: #fff;
+		float: left;
+		height: 250px;
+		list-style: none;
+		// margin: 0 0 0 -201px;
+		margin: 0;
+		padding: 0;
+		text-indent: 0;
+		// width: 9999px;
+		// width: 100%;
+		
+		// Event Card
+		li.eventCard{
+			background: #fff;
+			border-right: 5px solid #fff;
+			float: left;
+			height: 250px;
+			overflow: hidden;
+			padding: 0 0 30px 0;
+			position: relative;
+			width: 201px;
+			-webkit-transition: all 0.5s;
+			-moz-transition: all 0.5s;
+			-o-transition: all 0.5s;
+			transition: all 0.5s;
+			&:last-of-type{
+				border-right: 0;
+				margin-right: -403px;
+			}
+			@media screen and (max-width: 768px) {
+				width: 150px;
+			}
+			.image{
+				background: #aaa;
+				display: block;
+				height: 168px;
+				margin: 0;
+				overflow: hidden;
+				padding: 0;
+				img{
+					display: block;
+					margin: 0;
+					min-height: 168px;
+					min-width: 201px;
+
+					height: auto;
+					width: auto;
+				}
+				.caption{
+					display: none;
+				}
+			}
+			.text{
+				margin: 0;
+				overflow: auto;
+				padding: 10px;
+				h5.title{
+					color: #777;
+					font: normal 1.5em/1 "pill-gothic-600mg",helvetica,sans-serif;
+					margin: 0 0 .5em;
+				}
+				h6.date{
+					font: bold 1.25em/1 "pill-gothic-600mg",helvetica,sans-serif;
+					margin: 0 0 .25em;
+				}
+				.desc{
+					color: #999;
+					display: none;
+					font: normal 11px/1.4 sans-serif;
+				}
+			}
+			&:nth-child(even){
+				background: #eee;
+			}
+			&.active{
+				//background: $mmnAqua;
+				background: #fff;
+				box-shadow: 0 5px 5px rgba(0,0,0,.1);
+				margin: 0;
+				padding: 0;
+				width: 603px;
+				z-index: 200;
+				-webkit-transition: all 0.5s;
+				-moz-transition: all 0.5s;
+				-o-transition: all 0.5s;
+				transition: all 0.5s;
+				&:nth-of-type(2),
+				&:nth-of-type(3),
+				&:nth-of-type(4){
+					margin-left: -201px;
+				}
+				&:nth-of-type(5){
+					margin-left: -402px;
+				}
+				.image{
+					background: darken($mmnAqua,10);
+					box-shadow: 0 5px 5px rgba(0,0,0,.5);
+					display: block;
+					float: left;
+					height: 250px;
+					margin: 0;
+					overflow: hidden;
+					position: relative;
+					text-align: center;
+					width: 200px;
+				
+					img {
+						display: block;
+						margin: 0;
+						min-width: 100%;
+						min-height: 250px;
+						height: auto;
+						width: auto;
+					}
+					.caption{
+						background: rgba(0,0,0,.5);
+						bottom: 0;
+						color: #fff;
+						color: #333;
+						display: block;
+						font: normal 8px/1 sans-serif;
+						margin: -2em 0 0;
+						padding: 2%;
+						position: absolute;
+						text-align: right;
+						text-transform: uppercase;
+						width: 100%;
+					}
+					@media screen and (max-width: 600px) {
+						width: 25%;
+					}
+					@media screen and (max-width: 400px) {
+						width: 100px;
+					}
+				}
+				.text{
+					//color: #fff;
+					color: #333;
+					float: right;
+					width: 397px;
+					padding: 2.5%;
+					h5.title{
+						//color: #fff;
+						color: $temporisAqua;
+						font-size: 2.25em;
+					}
+					h6.date{
+						//color: #fff;
+						color: #333;
+						padding: .25em 0 0;
+					}
+					.desc{
+						clear: both;
+						//color: #fff;
+						color: #555;
+						display: block;
+						overflow: hidden;
+						p {
+							margin: 0 0 .5em;
+						}
+					}
+					@media screen and (max-width: 600px) {
+						float: none;
+						overflow: hidden;
+						padding: 15px;
+						width: 60%;
+						.desc{
+							// display: none;
+						}
+					}
+					@media screen and (max-width: 550px) {
+						width: 50%;
+					}
+					@media screen and (max-width: 399px) {
+						width: 37%;
+						p + p{
+							display: none;
+						}
+					}
+				}
+				@media screen and (max-width: 600px) {
+					//width: device-width;
+				}
+			}
+			&:hover,
+			&:nth-child(even):hover{
+				background: $temporisGray;
+				color: #fff;
+				*{
+					color: #fff !important;
+				}
+			}	
+		}
+	}
+
+// Year Selector
+
+	ol#temporisSelector{
+		background: $temporisAqua;
+		border-top: 5px solid #fff;
+		color: #fff;
+		font: normal 1.5em/1 $fontStackHeadings;
+		margin: 0 auto;
+		overflow: auto;
+		padding: 0;
+		position: relative;
+		text-align: center;
+		max-width: 1000px;
+		z-index: 10;
+		li{
+			display: inline-block;
+			_float: left;
+			a {
+				color: #fff;
+				display: block;
+				padding: 10px 15px;
+				text-decoration: none;
+				&:hover{
+					background: #aaa;
+					// font-weight: bold;
+				}
+				&.selected{
+					background: #c00;
+					// font-weight: bold;
+				}
+			}
+			&.prev,
+			&.next{
+				color: #000;
+				display: none;
+				padding: 10px;
+			}
+	
+			&.disabled{
+				display: none;
+			}
+		}
+		@media only screen and (max-width: 600px) {
+			display: none;
+		}
+	}	
+
+
+
+
+
+	
+	
